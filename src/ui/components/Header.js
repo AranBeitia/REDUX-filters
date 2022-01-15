@@ -12,7 +12,7 @@ const Header = () => {
             height="30"
             className="d-inline-block align-top"
           />
-          React Bootstrap
+          Redux filters
         </Navbar.Brand>
       </Container>
     </Navbar>
