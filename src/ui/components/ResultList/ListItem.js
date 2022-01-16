@@ -1,12 +1,9 @@
-import { ListGroup } from 'react-bootstrap'
-
-const ListItem = (props) => {
-  const { street, price, status } = props
+const ListItem = ({ street, price, status }) => {
   return (
     <>
-      <span>{street}</span>
-      <span>{price}</span>
-      <span>{status} </span>
+      <span>Street: {street} - </span>
+      <span>Price: {price} - </span>
+      <span>Status: {status} </span>
     </>
   )
 }
