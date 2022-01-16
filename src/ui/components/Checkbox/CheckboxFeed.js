@@ -7,9 +7,9 @@ const CheckboxFeed = (props) => {
   return (
     <>
       <Form.Label>{label}</Form.Label>
-      {fields.map((field, idx) => {
+      {fields.map((field, index) => {
         return (
-          <Checkbox className="mb-3" key={idx} label={label} field={field} />
+          <Checkbox className="mb-3" key={index} label={label} field={field} />
         )
       })}
     </>
