@@ -26,6 +26,7 @@ export const searchFilter = (value) => {
 
 export const fetchingData = () => {
   return async (dispatch) => {
+    dispatch(searchFilter)
     const result = await getData('http://localhost:3001/properties')
     dispatch(fetchDataSuccess(result[1]))
   }

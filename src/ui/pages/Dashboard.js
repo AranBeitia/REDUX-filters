@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchingData } from '../../redux/filter/actions'
 
 import { Container } from 'react-bootstrap'
@@ -9,11 +9,12 @@ import FilterForm from '../components/FilterForm'
 import ResultList from '../components/ResultList'
 
 const Dashboard = () => {
+  const { filters } = useSelector((state) => state.filter)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchingData())
-  }, [dispatch])
+  }, [filters])
 
   return (
     <>
