@@ -1,11 +1,15 @@
+import { useSelector } from 'react-redux'
 import { Container, ListGroup } from 'react-bootstrap'
 import ListItem from './ListItem'
 
-const ResultList = ({ properties }) => {
+const ResultList = () => {
+  const { data } = useSelector((state) => state.filter)
+  const properties = data
+
   return (
     <Container>
       <ListGroup>
-        {properties &&
+        {properties.length > 0 &&
           properties.map((item, index) => (
             <ListGroup.Item key={index}>
               <ListItem
