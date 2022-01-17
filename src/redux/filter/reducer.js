@@ -8,11 +8,13 @@ import {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_DATA_SUCCESS: {
-      const result = action.payload
-      const filter = result.filter((res) => res.street.includes(state.filters))
+      const data = action.payload
+      const filterResult = data.filter((res) =>
+        res.street.includes(state.filters)
+      )
       return {
         ...state,
-        data: filter,
+        data: filterResult,
         isLoading: false,
       }
     }
