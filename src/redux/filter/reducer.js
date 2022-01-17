@@ -1,7 +1,26 @@
 import initialState from './state'
+import { FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './types'
 
 const reducer = (state = initialState, action) => {
-  return state
+  switch (action.type) {
+    case FETCHING_DATA_SUCCESS: {
+      return {
+        ...state,
+        data: action.payload,
+        isLoading: false,
+      }
+    }
+    case FETCHING_DATA_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        error: true,
+      }
+    }
+    default: {
+      return state
+    }
+  }
 }
 
 export default reducer

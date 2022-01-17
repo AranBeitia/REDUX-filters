@@ -1,6 +1,5 @@
 import { createStore, compose, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
-
 import CombinedReducers from './reducers'
 
 const thunkApplied = applyMiddleware(thunk)

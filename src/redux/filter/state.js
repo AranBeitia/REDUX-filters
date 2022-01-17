@@ -1,3 +1,3 @@
-const initialState = { status: 'ok', number: 0 }
+const initialState = { data: [], filters: {}, isLoading: false, error: false }
 
 export default initialState

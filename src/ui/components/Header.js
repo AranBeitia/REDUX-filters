@@ -1,6 +1,6 @@
 import { Navbar, Container } from 'react-bootstrap'
 import logo from '../assets/img/logo.png'
-const Header = () => {
+const Header = ({ title }) => {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
@@ -14,6 +14,7 @@ const Header = () => {
           />
           Redux filters
         </Navbar.Brand>
+        <span className="text-light">{title}</span>
       </Container>
     </Navbar>
   )
