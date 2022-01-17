@@ -8,9 +8,11 @@ import {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCHING_DATA_SUCCESS: {
+      const result = action.payload
+      const filter = result.filter((res) => res.street.includes(state.filters))
       return {
         ...state,
-        data: action.payload,
+        data: filter,
         isLoading: false,
       }
     }
@@ -27,6 +29,7 @@ const reducer = (state = initialState, action) => {
         filters: action.payload,
       }
     }
+
     default: {
       return state
     }
