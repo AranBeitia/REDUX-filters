@@ -7,7 +7,10 @@ const SearchBar = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Control name="search" className="mb-3" type="text" id="search" />
+      <Form.Group className="position-relative">
+        <Form.Control name="search" className="mb-3" type="text" id="search" />
+        <span className="position-absolute search-icon fa fa-search"></span>
+      </Form.Group>
     </Form>
   )
 }

@@ -1,5 +1,9 @@
 import initialState from './state'
-import { FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './types'
+import {
+  FETCHING_DATA_SUCCESS,
+  FETCHING_DATA_FAILURE,
+  SEARCH_FILTER,
+} from './types'
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,6 +19,12 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: true,
+      }
+    }
+    case SEARCH_FILTER: {
+      return {
+        ...state,
+        filters: action.payload,
       }
     }
     default: {

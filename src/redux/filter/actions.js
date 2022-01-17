@@ -1,5 +1,9 @@
 import getData from '../../services/server'
-import { FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE } from './types'
+import {
+  FETCHING_DATA_SUCCESS,
+  FETCHING_DATA_FAILURE,
+  SEARCH_FILTER,
+} from './types'
 
 export const fetchDataSuccess = (data) => {
   return {
@@ -10,6 +14,13 @@ export const fetchDataSuccess = (data) => {
 export const fetchDataFailure = () => {
   return {
     type: FETCHING_DATA_FAILURE,
+  }
+}
+
+export const searchFilter = (value) => {
+  return {
+    type: SEARCH_FILTER,
+    payload: value,
   }
 }
 
