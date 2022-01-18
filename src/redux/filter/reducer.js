@@ -3,6 +3,7 @@ import {
   FETCHING_DATA_SUCCESS,
   FETCHING_DATA_FAILURE,
   SEARCH_FILTER,
+  RANGE_FILTER,
 } from './types'
 
 const reducer = (state = initialState, action) => {
@@ -29,6 +30,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         filters: action.payload,
+      }
+    }
+    case RANGE_FILTER: {
+      console.log(state.data)
+      return {
+        ...state,
+        data: action.payload,
       }
     }
 

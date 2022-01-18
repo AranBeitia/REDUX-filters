@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchingData } from '../../redux/filter/actions'
+import { fetchingData, rangeFilter } from '../../redux/filter/actions'
 
 import { Container } from 'react-bootstrap'
 import Header from '../components/Header'
@@ -14,6 +14,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     dispatch(fetchingData())
+    // dispatch(rangeFilter())
   }, [filters])
 
   return (

@@ -1,15 +1,16 @@
 import { Form } from 'react-bootstrap'
 
-const Checkbox = ({ value, label, id }) => {
+const Radiobutton = ({ value, label, id, name }) => {
   return (
     <Form.Check
       id={id}
       label={label}
+      name={name}
       value={value}
-      type="checkbox"
+      type="radio"
       // onChange={handleChange}
     />
   )
 }
 
-export default Checkbox
+export default Radiobutton

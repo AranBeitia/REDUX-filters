@@ -3,6 +3,7 @@ import {
   FETCHING_DATA_SUCCESS,
   FETCHING_DATA_FAILURE,
   SEARCH_FILTER,
+  RANGE_FILTER,
 } from './types'
 
 export const fetchDataSuccess = (data) => {
@@ -20,6 +21,13 @@ export const fetchDataFailure = () => {
 export const searchFilter = (value) => {
   return {
     type: SEARCH_FILTER,
+    payload: value,
+  }
+}
+
+export const rangeFilter = (value) => {
+  return {
+    type: RANGE_FILTER,
     payload: value,
   }
 }
