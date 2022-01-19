@@ -13,25 +13,25 @@ const FilterForm = () => {
       <div className="px-3">
         <Form.Group className="mb-4">
           <Form.Label>Type of home</Form.Label>
-          <Radiobutton
+          <Checkbox
             value={'flat/apartment'}
             label={'Flat or apartment'}
             id={'flat-apartment'}
             name={'home'}
           />
-          <Radiobutton
+          <Checkbox
             value={'house'}
             label={'House'}
             id={'House'}
             name={'home'}
           />
-          <Radiobutton
+          <Checkbox
             id={'duplex'}
             value={'duplex'}
             label={'Duplex'}
             name={'home'}
           />
-          <Radiobutton
+          <Checkbox
             id={'penthouse'}
             value={'penthouse'}
             label={'Penthouse'}

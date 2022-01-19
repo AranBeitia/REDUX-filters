@@ -1,31 +1,20 @@
 import initialState from './state'
-import {
-  FETCHING_DATA_SUCCESS,
-  FETCHING_DATA_FAILURE,
-  SEARCH_FILTER,
-  RANGE_FILTER,
-} from './types'
+import { SEARCH_FILTER, RANGE_FILTER } from './types'
 
-const reducer = (state = initialState, action) => {
+const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCHING_DATA_SUCCESS: {
-      const data = action.payload
-      const filterResult = data.filter((res) =>
-        res.street.includes(state.filters)
-      )
-      return {
-        ...state,
-        data: filterResult,
-        isLoading: false,
-      }
-    }
-    case FETCHING_DATA_FAILURE: {
-      return {
-        ...state,
-        isLoading: false,
-        error: true,
-      }
-    }
+    // case FETCHING_DATA_SUCCESS: {
+    //   const data = action.payload
+    //   const filterResult = data.filter((res) =>
+    //     res.street.includes(state.filters)
+    //   )
+    //   return {
+    //     ...state,
+    //     data: filterResult,
+    //     isLoading: false,
+    //   }
+    // }
+
     case SEARCH_FILTER: {
       return {
         ...state,
@@ -36,7 +25,7 @@ const reducer = (state = initialState, action) => {
       console.log(state.data)
       return {
         ...state,
-        data: action.payload,
+        filters: action.payload,
       }
     }
 
@@ -46,4 +35,4 @@ const reducer = (state = initialState, action) => {
   }
 }
 
-export default reducer
+export default filterReducer

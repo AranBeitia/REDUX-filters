@@ -3,13 +3,13 @@ import { Container, ListGroup } from 'react-bootstrap'
 import ListItem from './ListItem'
 
 const ResultList = () => {
-  const { data } = useSelector((state) => state.filter)
+  const { data } = useSelector((state) => state.result)
   const properties = data
 
   return (
     <Container>
       <ListGroup>
-        {properties.length > 0 &&
+        {properties &&
           properties.map((item, index) => (
             <ListGroup.Item key={index}>
               <ListItem

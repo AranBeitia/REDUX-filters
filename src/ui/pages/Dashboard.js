@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchingData, rangeFilter } from '../../redux/filter/actions'
+import { fetchingData } from '../../redux/result/actions'
 
 import { Container } from 'react-bootstrap'
 import Header from '../components/Header'
