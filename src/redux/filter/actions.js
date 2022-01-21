@@ -1,5 +1,10 @@
 import getData from '../../services/server'
-import { SEARCH_FILTER, RANGE_FILTER, CHANGE_TYPE_HOME } from './types'
+import {
+  SEARCH_FILTER,
+  RANGE_FILTER,
+  CHANGE_TYPE_HOME,
+  CHANGE_CONDITION,
+} from './types'
 
 export const searchFilter = (value) => {
   return {
@@ -22,10 +27,9 @@ export const changeTypeHome = (value) => {
   }
 }
 
-// export const fetchingData = () => {
-//   return async (dispatch) => {
-//     dispatch(searchFilter)
-//     const result = await getData('http://localhost:3001/properties')
-//     dispatch(fetchDataSuccess(result[1]))
-//   }
-// }
+export const changeCondition = (value) => {
+  return {
+    type: CHANGE_CONDITION,
+    payload: value,
+  }
+}

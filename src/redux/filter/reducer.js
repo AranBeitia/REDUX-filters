@@ -1,5 +1,10 @@
 import initialState from './state'
-import { SEARCH_FILTER, RANGE_FILTER, CHANGE_TYPE_HOME } from './types'
+import {
+  SEARCH_FILTER,
+  RANGE_FILTER,
+  CHANGE_TYPE_HOME,
+  CHANGE_CONDITION,
+} from './types'
 
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -31,15 +36,33 @@ const filterReducer = (state = initialState, action) => {
 
     case CHANGE_TYPE_HOME: {
       if (action.payload) {
-        let duplicated = state.typeHouse.find((i) => i === action.payload)
+        let duplicated = state.type.find((i) => i === action.payload)
         if (duplicated) {
-          let newItem = state.typeHouse.filter((el) => el !== duplicated)
+          let newItem = state.type.filter((el) => el !== duplicated)
           return {
             ...state,
-            typeHouse: [...newItem],
+            type: [...newItem],
           }
         } else {
-          return { ...state, typeHouse: [...state.typeHouse, action.payload] }
+          return { ...state, type: [...state.type, action.payload] }
+        }
+      }
+    }
+
+    case CHANGE_CONDITION: {
+      if (action.payload) {
+        let duplicated = state.condition.find((i) => i === action.payload)
+        if (duplicated) {
+          let newItem = state.condition.filter((el) => el !== duplicated)
+          return {
+            ...state,
+            condition: [...newItem],
+          }
+        } else {
+          return {
+            ...state,
+            condition: [...state.condition, action.payload],
+          }
         }
       }
     }

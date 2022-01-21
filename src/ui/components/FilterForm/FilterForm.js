@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchingData } from '../../../redux/result/actions'
-import { changeTypeHome } from '../../../redux/filter/actions'
+import { changeTypeHome, changeCondition } from '../../../redux/filter/actions'
 import { Form } from 'react-bootstrap'
 import Radiobutton from '../Radiobutton'
-import Checkbox from '../Checkbox/Checkbox'
 import Multirange from '../MultiRange/MultiRange'
 
 const FilterForm = () => {
@@ -28,52 +27,60 @@ const FilterForm = () => {
             label={'Flat or apartment'}
             id={'flat-apartment'}
             name={'flat'}
-            // checked={filters.typeHouse.includes('flat/apartment')}
             onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
           <Form.Check
             type="checkbox"
             value={'house'}
             label={'House'}
-            id={'House'}
+            id={'house'}
             name={'house'}
-            // checked={filters.typeHouse.includes('house')}
             onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
-          <Checkbox
+          <Form.Check
+            type="checkbox"
             id={'duplex'}
             value={'duplex'}
             label={'Duplex'}
-            name={'home'}
+            name={'duplex'}
+            onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
-          <Checkbox
+          <Form.Check
+            type="checkbox"
             id={'penthouse'}
             value={'penthouse'}
             label={'Penthouse'}
-            name={'home'}
+            name={'penthouse'}
+            onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
         </Form.Group>
       </div>
       <div className="px-3">
         <Form.Group className="mb-4">
           <Form.Label>Condition</Form.Label>
-          <Radiobutton
+          <Form.Check
+            type="checkbox"
             value={'new'}
             label={'New homes'}
             id={'new'}
-            name={'condition'}
+            name={'new'}
+            onChange={(e) => dispatch(changeCondition(e.target.value))}
           />
-          <Radiobutton
+          <Form.Check
+            type="checkbox"
             value={'good'}
             label={'Good'}
             id={'good'}
-            name={'condition'}
+            name={'good'}
+            onChange={(e) => dispatch(changeCondition(e.target.value))}
           />
-          <Radiobutton
+          <Form.Check
+            type="checkbox"
             id={'renovation'}
             value={'renovation'}
             label={'Needs renovation'}
-            name={'condition'}
+            name={'renovation'}
+            onChange={(e) => dispatch(changeCondition(e.target.value))}
           />
         </Form.Group>
       </div>
