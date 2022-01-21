@@ -1,29 +1,44 @@
-import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchingData } from '../../../redux/result/actions'
+import { changeTypeHome } from '../../../redux/filter/actions'
 import { Form } from 'react-bootstrap'
 import Radiobutton from '../Radiobutton'
 import Checkbox from '../Checkbox/Checkbox'
 import Multirange from '../MultiRange/MultiRange'
 
 const FilterForm = () => {
-  const { data } = useSelector((state) => state.filter)
-  console.log(Math.min(...data.map((item) => item.price)))
-  console.log(Math.max(...data.map((item) => item.price)))
+  const filters = useSelector((state) => state.filter)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchingData(filters))
+  }, [filters])
+
+  // console.log(Math.min(...filters.map((item) => item.price)))
+  // console.log(Math.max(...filters.map((item) => item.price)))
   return (
     <Form className="d-flex">
       <div className="px-3">
         <Form.Group className="mb-4">
           <Form.Label>Type of home</Form.Label>
-          <Checkbox
+          <Form.Check
+            type="checkbox"
             value={'flat/apartment'}
             label={'Flat or apartment'}
             id={'flat-apartment'}
-            name={'home'}
+            name={'flat'}
+            // checked={filters.typeHouse.includes('flat/apartment')}
+            onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
-          <Checkbox
+          <Form.Check
+            type="checkbox"
             value={'house'}
             label={'House'}
             id={'House'}
-            name={'home'}
+            name={'house'}
+            // checked={filters.typeHouse.includes('house')}
+            onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
           <Checkbox
             id={'duplex'}

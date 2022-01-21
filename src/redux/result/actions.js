@@ -9,9 +9,9 @@ export const fetchDataSuccess = (data) => {
   }
 }
 
-export const fetchingData = () => {
+export const fetchingData = (filters) => {
   return async (dispatch) => {
-    const result = await getData('http://localhost:3001/properties')
+    const result = await getData(filters)
     dispatch(fetchDataSuccess(result[1]))
   }
 }

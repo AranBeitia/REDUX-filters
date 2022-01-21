@@ -1,5 +1,5 @@
 import getData from '../../services/server'
-import { SEARCH_FILTER, RANGE_FILTER } from './types'
+import { SEARCH_FILTER, RANGE_FILTER, CHANGE_TYPE_HOME } from './types'
 
 export const searchFilter = (value) => {
   return {
@@ -11,6 +11,13 @@ export const searchFilter = (value) => {
 export const rangeFilter = (value) => {
   return {
     type: RANGE_FILTER,
+    payload: value,
+  }
+}
+
+export const changeTypeHome = (value) => {
+  return {
+    type: CHANGE_TYPE_HOME,
     payload: value,
   }
 }

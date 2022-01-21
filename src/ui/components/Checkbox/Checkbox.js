@@ -7,7 +7,7 @@ const Checkbox = ({ value, label, id }) => {
       label={label}
       value={value}
       type="checkbox"
-      // onChange={handleChange}
+      // onChange={() => handleChange}
     />
   )
 }
