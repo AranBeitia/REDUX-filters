@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchingData } from '../../../redux/result/actions'
-import { changeTypeHome, changeCondition } from '../../../redux/filter/actions'
+import {
+  changeTypeHome,
+  changeCondition,
+  changeBedrooms,
+  changeBathrooms,
+} from '../../../redux/filter/actions'
 import { Form } from 'react-bootstrap'
-import Radiobutton from '../Radiobutton'
 import Multirange from '../MultiRange/MultiRange'
 
 const FilterForm = () => {
@@ -54,8 +58,6 @@ const FilterForm = () => {
             onChange={(e) => dispatch(changeTypeHome(e.target.value))}
           />
         </Form.Group>
-      </div>
-      <div className="px-3">
         <Form.Group className="mb-4">
           <Form.Label>Condition</Form.Label>
           <Form.Check
@@ -87,13 +89,69 @@ const FilterForm = () => {
       <div className="px-3">
         <Form.Group className="mb-4">
           <Form.Label>Bedrooms</Form.Label>
-          <Radiobutton id={'1'} value={1} name={'bedrooms'} label={'1'} />
-          <Radiobutton id={'2'} value={2} name={'bedrooms'} label={'2'} />
-          <Radiobutton id={'3'} value={3} name={'bedrooms'} label={'3'} />
-          <Radiobutton id={'4'} value={4} name={'bedrooms'} label={'4+'} />
+          <Form.Check
+            type="checkbox"
+            id={1}
+            value={1}
+            name={1}
+            label={1}
+            onChange={(e) => dispatch(changeBedrooms(e.target.value))}
+          />
+          <Form.Check
+            type="checkbox"
+            id={2}
+            value={2}
+            name={2}
+            label={2}
+            onChange={(e) => dispatch(changeBedrooms(e.target.value))}
+          />
+          <Form.Check
+            type="checkbox"
+            id={3}
+            value={3}
+            name={3}
+            label={3}
+            onChange={(e) => dispatch(changeBedrooms(e.target.value))}
+          />
+          <Form.Check
+            type="checkbox"
+            id={4}
+            value={4}
+            name={4}
+            label={'4+'}
+            onChange={(e) => dispatch(changeBedrooms(e.target.value))}
+          />
         </Form.Group>
-        <Multirange min={100000} max={600000} onChange={() => null} />
+
+        <Form.Group className="mb-4">
+          <Form.Label>Bathrooms</Form.Label>
+          <Form.Check
+            type="checkbox"
+            value={1}
+            label={1}
+            id={1}
+            name={1}
+            onChange={(e) => dispatch(changeBathrooms(e.target.value))}
+          />
+          <Form.Check
+            type="checkbox"
+            value={2}
+            label={2}
+            id={2}
+            name={2}
+            onChange={(e) => dispatch(changeBathrooms(e.target.value))}
+          />
+          <Form.Check
+            type="checkbox"
+            id={3}
+            value={3}
+            label={3}
+            name={3}
+            onChange={(e) => dispatch(changeBathrooms(e.target.value))}
+          />
+        </Form.Group>
       </div>
+      <Multirange min={100000} max={600000} onChange={() => null} />
     </Form>
   )
 }

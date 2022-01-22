@@ -1,9 +1,10 @@
-import getData from '../../services/server'
 import {
   SEARCH_FILTER,
   RANGE_FILTER,
   CHANGE_TYPE_HOME,
   CHANGE_CONDITION,
+  SELECT_BEDROOMS,
+  SELECT_BATHROOMS,
 } from './types'
 
 export const searchFilter = (value) => {
@@ -30,6 +31,20 @@ export const changeTypeHome = (value) => {
 export const changeCondition = (value) => {
   return {
     type: CHANGE_CONDITION,
+    payload: value,
+  }
+}
+
+export const changeBedrooms = (value) => {
+  return {
+    type: SELECT_BEDROOMS,
+    payload: value,
+  }
+}
+
+export const changeBathrooms = (value) => {
+  return {
+    type: SELECT_BATHROOMS,
     payload: value,
   }
 }

@@ -4,6 +4,8 @@ import {
   RANGE_FILTER,
   CHANGE_TYPE_HOME,
   CHANGE_CONDITION,
+  SELECT_BEDROOMS,
+  SELECT_BATHROOMS,
 } from './types'
 
 const filterReducer = (state = initialState, action) => {
@@ -65,6 +67,44 @@ const filterReducer = (state = initialState, action) => {
           }
         }
       }
+    }
+
+    case SELECT_BEDROOMS: {
+      if (action.payload) {
+        let duplicated = state.bedrooms.find((i) => i === action.payload)
+        if (duplicated) {
+          let newItem = state.bedrooms.filter((el) => el !== duplicated)
+          return {
+            ...state,
+            bedrooms: [...newItem],
+          }
+        } else {
+          return {
+            ...state,
+            bedrooms: [...state.bedrooms, action.payload],
+          }
+        }
+      }
+    }
+    case SELECT_BATHROOMS: {
+      if (action.payload) {
+        let duplicated = state.bathrooms.find((i) => i === action.payload)
+
+        if (duplicated) {
+          let newItem = state.bathrooms.filter((el) => el !== duplicated)
+
+          return {
+            ...state,
+            bathrooms: [...newItem],
+          }
+        } else {
+          return {
+            ...state,
+            bathrooms: [...state.bathrooms, action.payload],
+          }
+        }
+      }
+      return {}
     }
 
     default: {
