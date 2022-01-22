@@ -71,36 +71,36 @@ const filterReducer = (state = initialState, action) => {
 
     case SELECT_BEDROOMS: {
       if (action.payload) {
-        let duplicated = state.bedrooms.find((i) => i === action.payload)
+        let duplicated = state.room.find((i) => i === action.payload)
         if (duplicated) {
-          let newItem = state.bedrooms.filter((el) => el !== duplicated)
+          let newItem = state.room.filter((el) => el !== duplicated)
           return {
             ...state,
-            bedrooms: [...newItem],
+            room: [...newItem],
           }
         } else {
           return {
             ...state,
-            bedrooms: [...state.bedrooms, action.payload],
+            room: [...state.room, action.payload],
           }
         }
       }
     }
     case SELECT_BATHROOMS: {
       if (action.payload) {
-        let duplicated = state.bathrooms.find((i) => i === action.payload)
+        let duplicated = state.bath.find((i) => i === action.payload)
 
         if (duplicated) {
-          let newItem = state.bathrooms.filter((el) => el !== duplicated)
+          let newItem = state.bath.filter((el) => el !== duplicated)
 
           return {
             ...state,
-            bathrooms: [...newItem],
+            bath: [...newItem],
           }
         } else {
           return {
             ...state,
-            bathrooms: [...state.bathrooms, action.payload],
+            bath: [...state.bath, action.payload],
           }
         }
       }

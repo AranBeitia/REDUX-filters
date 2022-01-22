@@ -1,13 +1,13 @@
 const getData = (filters) => {
   let url = ''
-  if (filters[0]) {
-    Object.entries(filters).forEach(
-      ([key, value]) => (url += `&${key}=${value}`)
-    )
-  } else {
-    url = ''
-  }
-  console.log(url)
+
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value.length > 0) {
+      const string = value.join(`&${key}=`)
+      console.log(string)
+      url += `&${key}=${string}`
+    }
+  })
 
   return fetch(`http://localhost:3001/properties?${url}`).then((response) =>
     Promise.all([response, response.json()])

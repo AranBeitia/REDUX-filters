@@ -1,3 +1,3 @@
-const initialState = { type: [], condition: [], bedrooms: [], bathrooms: [] }
+const initialState = { type: [], condition: [], room: [], bath: [] }
 
 export default initialState
